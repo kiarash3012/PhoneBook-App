@@ -1,4 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>hello world</h1>
+    <div class="container">
+        <div class="row">
+            {% if all_contacts %}
+                {% for recored in all_contacts %}
+                    <div class="col-sm">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ recored.first_name }}</h5>
+                                <p class="card-text">
+                                    {{ recored.family_name }}<br>
+                                    {{ recored.address }}<br>
+                                    {{ recored.email }}<br>
+                                    {{ recored.company }}<br>
+                                    {{ recored.phone_number }}<br>
+                                </p>
+                                <a href="#" class="btn btn-primary">Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}
