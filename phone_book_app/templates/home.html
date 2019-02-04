@@ -3,19 +3,19 @@
     <div class="container">
         <div class="row">
             {% if all_contacts %}
-                {% for recored in all_contacts %}
+                {% for record in all_contacts %}
                     <div class="col-sm">
                         <div class="card" style="width: 18rem;">
                             <div class="card-body">
-                                <h5 class="card-title">{{ recored.first_name }}</h5>
+                                <h5 class="card-title">{{ record.first_name }}</h5>
                                 <p class="card-text">
-                                    {{ recored.family_name }}<br>
-                                    {{ recored.address }}<br>
-                                    {{ recored.email }}<br>
-                                    {{ recored.company }}<br>
-                                    {{ recored.phone_number }}<br>
+                                    {{ record.family_name }}<br>
+                                    {{ record.address }}<br>
+                                    {{ record.email }}<br>
+                                    {{ record.company }}<br>
+                                    {{ record.phone_number }}<br>
                                 </p>
-                                <a href="#" class="btn btn-primary">Edit</a>
+                                <a href="{% url 'edit_contact' record.id %}" class="btn btn-primary">Edit</a>
                             </div>
                         </div>
                     </div>

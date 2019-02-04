@@ -1,18 +1,30 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>add contact</h1>
+    <h1>Add Contact</h1>
     <form method="post">
         {% csrf_token %}
         <div class="form-group">
-            'address', 'email', 'company', 'phone_number']
-            <input type="text" class="form-control" id="first_name_id" placeholder="first_name" name="first_name">
-            <input type="text" class="form-control" id="family_name_id" placeholder="family_name" name="family_name">
-            <input type="text" class="form-control" id="address_id" placeholder="address" name="address">
-            <input type="text" class="form-control" id="company_id" placeholder="company" name="company">
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                   placeholder="Enter email">
-            <input type="text" class="form-control" id="phone_number_id" placeholder="phone_number" name="phone_number">
+            <div class="form-group">
+                <input type="text" class="form-control" id="first_name_id" placeholder="First Name" name="first_name">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="family_name_id" placeholder="Family Name" name="family_name">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="address_id" placeholder="Address" name="address">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="company_id" placeholder="Company" name="company">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="someemail@somemail.com">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="phone_number_id" placeholder="+989998887766" name="phone_number">
+            </div>
+            <div class="form-group">
             <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
         </div>
     </form>
 {% endblock %}

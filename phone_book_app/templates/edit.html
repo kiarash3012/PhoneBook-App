@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Edit Contact</h2>
+    <br>
+    {% if get_address %}
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="first_name_id" value="{{ get_address.first_name }}" name="first_name">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="family_name_id" value="{{ get_address.family_name }}" name="family_name">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="address_id" value="{{ get_address.address }}" name="address">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="company_id" value="{{ get_address.company }}" name="company">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="exampleInputEmail1" value="{{ get_address.email }}" >
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="phone_number_id" value="{{ get_address.phone_number }}" name="phone_number">
+                </div>
+                <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+    {% endif %}
+{% endblock %}
