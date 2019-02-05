@@ -35,21 +35,16 @@ def edit_contact(request, list_id):
             messages.success(request, ('Seems Like There was An Error...'))
             return render(request, 'edit.html', {})
     else:
-        get_address = Contact.objects.get(pk=list_id)
-        return render(request, 'edit.html', {'get_address': get_address})
+        get_contact = Contact.objects.get(pk=list_id)
+        return render(request, 'edit.html', {'get_contact': get_contact})
 
 
 def delete_contact(request, list_id):
     if request.method == 'POST':
         current_contact = Contact.objects.get(pk=list_id)
-        form = ContactForm(request.POST or None, instance=current_contact)
-        if form.is_valid():
-            form.save()
-            messages.success(request, ('Contact Has Been Deleted'))
-            return redirect('home')
-        else:
-            messages.success(request, ('Seems Like There was An Error...'))
-            return render(request, 'delete.html', {})
+        current_contact.delete()
+        messages.success(request, ('Contact Has Been Deleted ...'))
+        return redirect('home')
     else:
-        get_address = Contact.objects.get(pk=list_id)
-        return render(request, 'delete.html', {'get_address': get_address})
+        messages.success(request, ('Nothing To See Here ...'))
+        return redirect('home')

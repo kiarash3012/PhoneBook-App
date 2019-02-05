@@ -2,32 +2,37 @@
 {% block content %}
     <h2>Edit Contact</h2>
     <br>
-    {% if get_address %}
+    {% if get_contact %}
         <form method="post">
             {% csrf_token %}
             <div class="form-group">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="first_name_id" value="{{ get_address.first_name }}" name="first_name">
+                    <input type="text" class="form-control" id="first_name_id" value="{{ get_contact.first_name }}" name="first_name">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="family_name_id" value="{{ get_address.family_name }}" name="family_name">
+                    <input type="text" class="form-control" id="family_name_id" value="{{ get_contact.family_name }}" name="family_name">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="address_id" value="{{ get_address.address }}" name="address">
+                    <input type="text" class="form-control" id="address_id" value="{{ get_contact.address }}" name="address">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="company_id" value="{{ get_address.company }}" name="company">
+                    <input type="text" class="form-control" id="company_id" value="{{ get_contact.company }}" name="company">
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" id="exampleInputEmail1" value="{{ get_address.email }}" >
+                    <input type="email" class="form-control" id="exampleInputEmail1" value="{{ get_contact.email }}" >
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="phone_number_id" value="{{ get_address.phone_number }}" name="phone_number">
+                    <input type="text" class="form-control" id="phone_number_id" value="{{ get_contact.phone_number }}" name="phone_number">
                 </div>
                 <div class="form-group">
                 <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </div>
+        </form>
+        <form method="POST" action="{% url 'delete_contact' get_contact.id %}">
+            {% csrf_token %}
+            <input type="hidden" value="{{ get_contact.id }}" name="id">
+            <button type="submit" class="btn btn-secondary">Delete Contact</button>
         </form>
     {% endif %}
 {% endblock %}
